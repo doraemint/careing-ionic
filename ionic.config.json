@@ -1,0 +1,7 @@
+{
+  "name": "care-ing-mobile-app-main",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

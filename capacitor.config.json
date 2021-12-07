@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "care-ing-mobile-app-main",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
