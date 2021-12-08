@@ -3,6 +3,7 @@
 
 /** Ionic CSS Variables **/
 :root {
+  
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -68,12 +69,20 @@
   --ion-color-medium-tint: #9d9fa6;
 
   /** light **/
-  --ion-color-light: #f4f5f8;
-  --ion-color-light-rgb: 244, 245, 248;
+  --ion-color-light: #037682;
+  --ion-color-light-rgb: 3, 118, 130;
   --ion-color-light-contrast: #000000;
   --ion-color-light-contrast-rgb: 0, 0, 0;
-  --ion-color-light-shade: #d7d8da;
-  --ion-color-light-tint: #f5f6f9;
+  --ion-color-light-shade: #147680;
+  --ion-color-light-tint: #26767f;
+
+  ion-tab-button.tab-selected {
+    ion-icon,
+    ion-label {
+      color: var(--ion-color-light) !important;
+      --ion-color-base: var(--ion-color-light) !important;
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
