@@ -5,5 +5,16 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-input type="text" [(ngModel)]="newUser.firstname"> Firstname: </ion-input>
+  <br>
+  <ion-input type="text" [(ngModel)]="newUser.lastname"> Lastname: </ion-input>
+  <br>
+  <ion-input type="text" [(ngModel)]="newUser.email"> Email: </ion-input>
+  <br>
+  <ion-input type="password" [(ngModel)]="newUser.password"> Password: </ion-input>
+  <br>
+  <ion-input type="password" [(ngModel)]="newUser.confirmPassword"> Confirm Password: </ion-input>
+  <br><br>
+  <ion-button class="login" (click)="goBackToLogin()">Log in</ion-button>
+  <ion-button class="register" (click)="register()">Register</ion-button>
 </ion-content>
