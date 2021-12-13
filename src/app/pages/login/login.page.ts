@@ -21,21 +21,22 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  login() {
-    let toaster = this.toastCtrl.create({
-      message: 'Error Please field ',
+  async presentToast(text) {
+    const toast = await this.toastCtrl.create({
+      message: text,
       duration: 3000,
-      position: 'bottom'
     });
+    toast.present();
+  }
 
+  async login() {
     this.authService.login(this.credentials).then((res: any) => {
       if (!res.code) {
-        this.router.navigate(['signup']);
+        this.presentToast('Login Success');
       }
     },
-      async (err) => {
-        (await toaster).message = 'Please try again' + err;
-        (await toaster).present();
+      (err) => {
+        this.presentToast('Please try again \n' + err);
       });
   }
 

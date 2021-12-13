@@ -27,26 +27,25 @@ export class SignupPage implements OnInit {
   ngOnInit() {
   }
 
-  async register() {
-    let toaster = this.toastCtrl.create({
-      message: 'Error Please field ',
+  async presentToast(text) {
+    const toast = await this.toastCtrl.create({
+      message: text,
       duration: 3000,
-      position: 'bottom'
     });
+    toast.present();
+  }
 
+  async register() {
     if (this.newUser.firstname == '' ||
       this.newUser.lastname == '' ||
       this.newUser.email == '' ||
       this.newUser.password == '' ||
       this.newUser.confirmPassword == '') {
-      (await toaster).message = 'All fields are require';
-      (await toaster).present();
+      this.presentToast('All fields are require');
     } else if (this.newUser.password !== this.newUser.confirmPassword) {
-      (await toaster).message = "Passowrd don't match";
-      (await toaster).present();
+      this.presentToast("Passowrd don't match");
     } else if (this.newUser.password.length < 8) {
-      (await toaster).message = 'Passowrd should have more than 8 characters';
-      (await toaster).present();
+      this.presentToast('Passowrd should have more than 8 characters');
     } else {
       let loader = await this.loadingCtrl.create({
         message: 'Please wait'
@@ -57,13 +56,11 @@ export class SignupPage implements OnInit {
         loader.dismiss();
         console.log('res', res)
         this.router.navigate(['login']);
-      },
-        async (err) => {
-          loader.dismiss();
-          (await toaster).message = 'Please try again \n'+ err;
-          (await toaster).present();
-        });
-      };
+      }, (err) => {
+        loader.dismiss();
+        this.presentToast('Please try again \n' + err);
+      });
+    };
   }
 
   goBackToLogin() {
