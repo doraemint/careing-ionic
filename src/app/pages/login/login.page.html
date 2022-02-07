@@ -5,5 +5,10 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-input type="text" [(ngModel)]="credentials.email"> Email: </ion-input>
+  <br>
+  <ion-input type="password" [(ngModel)]="credentials.password"> Password: </ion-input>
+  <br>
+  <ion-button class="register" (click)="login()">Log in</ion-button>
+  <ion-button class="register" (click)="gotoSignUp()">Sign up</ion-button>
 </ion-content>
